@@ -32,9 +32,9 @@ function start() {
 
     // link directly instead of using indices
     allLinks.forEach( function(link, index) {
-        
         // Check to see if these links point to valid nodes
         if (typeof(allNodes[link.target]) !== "undefined" && (typeof(allNodes[link.source])) !== "undefined") {
+            console.log("passed");
             link.source = allNodes[link.source];
             link.target = allNodes[link.target];
         }
@@ -103,11 +103,11 @@ function start() {
             nodes.splice( nodes.indexOf(node), 1);
           }
       });
-
+  console.log(allLinks.length);
   allLinks.forEach( function(link, index) {
-      
       // Should this link be visible yet?
       if (nodes.indexOf(link.source) != -1 && nodes.indexOf(link.target) != -1 && links.indexOf(link) == -1) {
+        console.log("pushing on", link);
         links.push(link);   
       } 
       else if ( (nodes.indexOf(link.source) == -1 || nodes.indexOf(link.target) == -1) && links.indexOf(link) != -1) {

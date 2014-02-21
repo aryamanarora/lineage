@@ -29,7 +29,7 @@ class Converter
     family = JSON.parse(all)
 
     # Included this because occasionally I didn't want to blow everything up
-    max = 4000
+    max = 8000
 
     # You have to call getNodes first, because it also builds the nodeMap
     # That dependency should be dealt with for maintainability, but it's not a priority now
@@ -39,6 +39,8 @@ class Converter
 
     # Gets a link for each relationship
     links = getLinks(family, max)    
+    
+    puts("generated #{links.length} links")
 
     # Output everything to a json file
     writeToFile(nodes, links, "data/familyData.json")  
@@ -57,7 +59,7 @@ class Converter
         birthYear = ""
       end
 
-      node = {  "name" => member['Name'], 
+      node = {  "name" => member['Name'].to_s, 
                 "gender" => member['Gender'], 
                 "lastName" => member['Name'].to_s.split(", ")[0],
                 "birthYear" => birthYear,
@@ -110,14 +112,14 @@ class Converter
       end
 
     end
-
+    return links
   end
 
   def getJsonFromCsv() 
     all = ""
     
     # Convert CSV to JSON
-    CSV.foreach("data/familyData.csv", :headers => true, encoding: "ISO8859-1") do |person|
+    CSV.foreach("data/relationships_sorted.csv", :headers => true, encoding: "ISO8859-1") do |person|
       jsonPerson = ""
       person.each do |key, value|
         

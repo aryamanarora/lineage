@@ -58,8 +58,16 @@ class Converter
       if birthYear == 0
         birthYear = ""
       end
+      
+      nameArr = member['Name'].to_s.split(", ")
+  
+      if nameArr[1].nil?
+        firstInitial = "?"
+      else
+        firstInitial = nameArr[1][0,1]
+      end
 
-      node = {  "name" => member['Name'].to_s, 
+      node = {  "name" => "#{firstInitial}, #{nameArr[0].to_s}", 
                 "gender" => member['Gender'], 
                 "lastName" => member['Name'].to_s.split(", ")[0],
                 "birthYear" => birthYear,

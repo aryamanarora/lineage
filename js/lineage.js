@@ -5,7 +5,7 @@ function start() {
   var width = window.innerWidth / zoomLevel,
       height = window.innerHeight / zoomLevel;
   var fill = d3.scale.category20();
-  var startYear = 1900;
+  var startYear = 1750;
   var currentYear = startYear;
   var lastYear = 2014;
   var timeVector = 0;
@@ -13,12 +13,12 @@ function start() {
   var allNodes = [];
   var tickDuration = 1000;
 
-  var json = $.getJSON("data/familyData.json", function(json) {
+  var json = $.getJSON("data/lineageLimited.json", function(json) {
     allLinks = json.links;
     allNodes = json.nodes;
 
     startYears = allNodes.map( function(d) { return d.birthYear; } )
-    startYear  = Math.min.apply(Math, startYears);
+    //startYear  = Math.min.apply(Math, startYears);
     currentYear = startYear;
 
     // Initialize the slider
@@ -34,7 +34,6 @@ function start() {
     allLinks.forEach( function(link, index) {
         // Check to see if these links point to valid nodes
         if (typeof(allNodes[link.target]) !== "undefined" && (typeof(allNodes[link.source])) !== "undefined") {
-            console.log("passed");
             link.source = allNodes[link.source];
             link.target = allNodes[link.target];
         }
@@ -103,11 +102,9 @@ function start() {
             nodes.splice( nodes.indexOf(node), 1);
           }
       });
-  console.log(allLinks.length);
   allLinks.forEach( function(link, index) {
       // Should this link be visible yet?
       if (nodes.indexOf(link.source) != -1 && nodes.indexOf(link.target) != -1 && links.indexOf(link) == -1) {
-        console.log("pushing on", link);
         links.push(link);   
       } 
       else if ( (nodes.indexOf(link.source) == -1 || nodes.indexOf(link.target) == -1) && links.indexOf(link) != -1) {
@@ -117,7 +114,10 @@ function start() {
   });
       currentYear += timeVector;
       addedNodeThisYear = false;
-      slider.slide_to(currentYear);
+
+      if (slider != null) {
+        slider.slide_to(currentYear);
+      }
      
       if (currentYear < 2020) {
         restart();

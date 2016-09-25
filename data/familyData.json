@@ -1,50 +1,11 @@
 {"nodes":[
-  {
-      "name": "Arora, Aryaman",
-      "gender": "M",
-      "lastName": "Arora",
-      "birthYear": 2002,
-      "deathYear": ""
-  },
-  {
-      "name": "Arora, Am.",
-      "gender": "M",
-      "lastName": "Arora",
-      "birthYear": 2006,
-      "deathYear": ""
-  },
-  {
-      "name": "Saxena, An.",
-      "gender": "F",
-      "lastName": "Saxena",
-      "birthYear": 1973,
-      "deathYear": ""
-  },
-  {
-      "name": "Arora, Am.",
-      "gender": "M",
-      "lastName": "Arora",
-      "birthYear": 1974,
-      "deathYear": ""
-  },
+  {"name": "Arora, Aryaman","gender": "M","lastName": "Arora","birthYear": 2002,"deathYear": ""},
+  {"name": "Arora, Am.","gender": "M","lastName": "Arora","birthYear": 2006,"deathYear": ""},
+  {"name": "Saxena, An.","gender": "F","lastName": "Saxena","birthYear": 1973,"deathYear": ""},
+  {"name": "Arora, Am.","gender": "M","lastName": "Arora","birthYear": 1974,"deathYear": ""}
 ],
 "links":[
-  {
-    "source":3,
-    "target":1,
-    "color":"#F39",
-    "relation":"mother"
-  },
-  {
-    "source":3,
-    "target":2,
-    "color":"#F39",
-    "relation":"mother"
-  },
-  {
-    "source":3,
-    "target":4,
-    "color":"#CC0",
-    "relation":"spouse"
-  }
+  {"source":2,"target":0,"color":"#F39","relation":"mother"},
+  {"source":2,"target":1,"color":"#F39","relation":"mother"},
+  {"source":2,"target":3,"color":"#CC0","relation":"spouse"}
 ]}

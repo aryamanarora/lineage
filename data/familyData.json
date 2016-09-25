@@ -11,7 +11,11 @@
   {"name": "Arora, A.","gender": "F","lastName": "Arora","birthYear": 1969,"deathYear": ""},
   {"name": "Kandhari, S.","gender": "M","lastName": "Kandhari","birthYear": 1968,"deathYear": ""},
   {"name": "Kandhari, P.","gender": "M","lastName": "Kandhari","birthYear": 1993,"deathYear": ""},
-  {"name": "Kandhari, Y.","gender": "F","lastName": "Kandhari","birthYear": 1998,"deathYear": ""}
+  {"name": "Kandhari, Y.","gender": "F","lastName": "Kandhari","birthYear": 1998,"deathYear": ""},
+  {"name": "Kandhari, S.","gender": "F","lastName": "Kandhari","birthYear": 1940,"deathYear": ""},
+  {"name": "Kandhari, S. D.","gender": "M","lastName": "Kandhari","birthYear": 1940,"deathYear": ""},
+  {"name": "Kandhari, R.","gender": "F","lastName": "Kandhari","birthYear": 1970,"deathYear": ""},
+  {"name": "Kandhari, D.","gender": "F","lastName": "Kandhari","birthYear": 1970,"deathYear": ""},
 ],
 "links":[
   {"source":0,"target":2,"color":"#F39","relation":"mother"},
@@ -32,5 +36,12 @@
   {"source":12,"target":9,"color":"#F39","relation":"mother"},
   {"source":12,"target":10,"color":"#39F","relation":"father"},
   {"source":9,"target":8,"color":"#F39","relation":"mother"},
-  {"source":9,"target":6,"color":"#39F","relation":"father"}
+  {"source":9,"target":6,"color":"#39F","relation":"father"},
+  {"source":10,"target":13,"color":"#F39","relation":"mother"},
+  {"source":10,"target":14,"color":"#39F","relation":"father"},
+  {"source":15,"target":13,"color":"#F39","relation":"mother"},
+  {"source":15,"target":14,"color":"#39F","relation":"father"},
+  {"source":16,"target":13,"color":"#F39","relation":"mother"},
+  {"source":16,"target":14,"color":"#39F","relation":"father"},
+  {"source":13,"target":14,"color":"CC0","relation":"spouse"}
 ]}

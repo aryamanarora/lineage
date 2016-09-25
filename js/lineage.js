@@ -165,7 +165,7 @@ function start() {
     node.enter()
         .insert("circle")
         .attr("class", "node")
-        .attr("r", 5)
+        .attr("r", (currentYear - function(d))/3)
         .on("mouseover", function(d) {
 
           d3.select(this).transition().duration(100).attr('r',10);

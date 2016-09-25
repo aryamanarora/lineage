@@ -165,9 +165,9 @@ function start() {
     node.enter()
         .insert("circle")
         .attr("class", "node")
-        .attr("r", (function(d) {
+        .attr("r", function(d) {
 
-          return currentYear - (d.value / 3); 
+          return currentYear - (d.value / 3);
 
         })
         .on("mouseover", function(d) {

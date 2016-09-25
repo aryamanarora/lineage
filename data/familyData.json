@@ -5,7 +5,9 @@
   {"name": "Arora, Am.","gender": "M","lastName": "Arora","birthYear": 1974,"deathYear": ""}
 ],
 "links":[
-  {"source":2,"target":0,"color":"#F39","relation":"mother"},
-  {"source":2,"target":1,"color":"#F39","relation":"mother"},
+  {"source":0,"target":2,"color":"#F39","relation":"mother"},
+  {"source":0,"target":3,"color":"#39F","relation":"father"},
+  {"source":1,"target":2,"color":"#F39","relation":"mother"},
+  {"source":1,"target":3,"color":"#39F","relation":"father"},
   {"source":2,"target":3,"color":"#CC0","relation":"spouse"}
 ]}

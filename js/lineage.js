@@ -1,3 +1,21 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @aryamanarora
+ Unwatch 1
+  Star 0
+  Fork 7 aryamanarora/lineage
+forked from bengarvey/lineage
+ Code  Pull requests 0  Projects 0  Wiki  Pulse  Graphs  Settings
+Tree: 7d4ea5ba6a Find file Copy pathlineage/js/lineage.js
+7d4ea5b  4 hours ago
+@aryamanarora aryamanarora date fix
+2 contributors @bengarvey @aryamanarora
+RawBlameHistory     
+356 lines (294 sloc)  8.9 KB Language not supported. Coming soon!
 function start() {
 
   var zoomLevel = 1;
@@ -5,7 +23,7 @@ function start() {
   var width = window.innerWidth / zoomLevel,
       height = window.innerHeight / zoomLevel;
   var fill = d3.scale.category20();
-  var startYear = 1900;
+  var startYear = 1938;
   var currentYear = startYear;
   var lastYear = 2016;
   var timeVector = 0;
@@ -18,11 +36,11 @@ function start() {
     allNodes = json.nodes;
 
     startYears = allNodes.map( function(d) { return d.birthYear; } )
-    startYear  = Math.min.apply(Math, startYears);
+    //startYear  = Math.min.apply(Math, startYears);
     currentYear = startYear;
 
     // Initialize the slider
-    d3.select('#timeline').call( 
+    d3.select('#timeline').call(
       slider = d3.slider().axis(true).min(startYear).max(lastYear).step(1)
         .value(currentYear)
         .on("slide", function(event, value) {
@@ -32,7 +50,6 @@ function start() {
 
     // link directly instead of using indices
     allLinks.forEach( function(link, index) {
-        
         // Check to see if these links point to valid nodes
         if (typeof(allNodes[link.target]) !== "undefined" && (typeof(allNodes[link.source])) !== "undefined") {
             link.source = allNodes[link.source];
@@ -41,7 +58,7 @@ function start() {
     });
 
   });
-  
+
   var visibleLinks = [];
   var allLinks = [];
   allNodes.forEach( function(node, index) {
@@ -49,7 +66,7 @@ function start() {
           visibleNodes.push(node);
       }
   });
-      
+
   var colors = d3.scale.category20();
 
   var force = d3.layout.force()
@@ -87,38 +104,39 @@ function start() {
   restart();
 
   var stopCode = setInterval(function() {
-  
+
   // Check to see if we should add any new nodes that aren't already in there
   allNodes.forEach( function(node, index) {
           if (node.birthYear != "" && node.birthYear <= currentYear && nodes.indexOf(node) == -1 && (!lockSearch || allowNodeFromSearch(node))) {
             nodes.push(node);
-  
+
             if (!addedNodeThisYear) {
               //addToFeed( { name: currentYear, lastName: "black" } );
               addedNodeThisYear = true;
             }
-            
+
           }
           else if ((node.birthYear > currentYear || (lockSearch && !allowNodeFromSearch(node))) && nodes.indexOf(node) != -1) {
             nodes.splice( nodes.indexOf(node), 1);
           }
       });
-
   allLinks.forEach( function(link, index) {
-      
       // Should this link be visible yet?
       if (nodes.indexOf(link.source) != -1 && nodes.indexOf(link.target) != -1 && links.indexOf(link) == -1) {
-        links.push(link);   
-      } 
+        links.push(link);
+      }
       else if ( (nodes.indexOf(link.source) == -1 || nodes.indexOf(link.target) == -1) && links.indexOf(link) != -1) {
         // This link should be removed now
-        links.splice(links.indexOf(link, 1)); 
+        links.splice(links.indexOf(link, 1));
       }
   });
       currentYear += timeVector;
       addedNodeThisYear = false;
-      slider.slide_to(currentYear);
-     
+
+      if (slider != null) {
+        slider.slide_to(currentYear);
+      }
+
       if (currentYear < 2020) {
         restart();
       }
@@ -138,7 +156,7 @@ function start() {
     node.attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; })
         .style("stroke-width", 1)
-        .style("fill", function(d) { 
+        .style("fill", function(d) {
             return colors(d.lastName);
         });
 
@@ -146,7 +164,7 @@ function start() {
     width = window.innerWidth / zoomLevel;
     svg.attr("height", height)
       .attr("width", width);
-    force.size([width, height]); 
+    force.size([width, height]);
     $('#year').html(currentYear)
       .css('left', width/2 - 105)
       .css('top', height - 140);
@@ -166,7 +184,7 @@ function start() {
         .insert("circle")
         .attr("class", "node")
         .attr("r", 5)
-        .on("mouseover", function(d) { 
+        .on("mouseover", function(d) {
 
           d3.select(this).transition().duration(100).attr('r',10);
 
@@ -181,11 +199,11 @@ function start() {
         })
         .on("mouseout", function(d) {
           d3.select(this).transition().duration(100).attr('r', 5);
-          d3.select('#memberDetails').style('display', 'none');            
+          d3.select('#memberDetails').style('display', 'none');
         })
         .call(force.drag);
 
-    if ($('#search').val() != "") { 
+    if ($('#search').val() != "") {
       checkForSearch();
     }
 
@@ -194,7 +212,7 @@ function start() {
   }
 
   function addToFeed(node) {
-    
+
     d3.selectAll('ul')
       .append('li')
       .text(node.name)
@@ -222,8 +240,8 @@ $('#timeNavigation').find('#previousButton')
 $('#timeNavigation').find('#playButton')
   .click(function() {
       timeVector = 1;
-      if ($('#musicOn').is(":checked")) { 
-        audio.play();  
+      if ($('#musicOn').is(":checked")) {
+        audio.play();
       }
     }
   );
@@ -258,7 +276,7 @@ $('#timeNavigation').find('#search')
 
 $('#lockSearch').on("change", function(event) {
     lockSearch = !lockSearch;
-});  
+});
 
 var nightMode = false;
 $('#nightModeOn').on("change", function(event) {
@@ -273,7 +291,7 @@ $('#nightModeOn').on("change", function(event) {
       body.transition().duration(1000).style('background-color', '#FFF').style('color', '#333');
       d3.select('#year').style('color', '#222');
     }
-});  
+});
 
 
 d3.select('#timeNavigation')
@@ -330,7 +348,7 @@ function checkForSearch() {
   var searchList = searchText.split(" ");
 
   // Search through all nodes for this string
-  node.attr('opacity', function(d) {            
+  node.attr('opacity', function(d) {
     var found = false;
     searchList.forEach( function(item) {
       if (item != "" && d.name.indexOf(item) != -1) {
@@ -339,11 +357,11 @@ function checkForSearch() {
     });
     return found ? 1 : 0.3;
   });
-  
+
   link.attr('opacity', function(d) {
     var found = false;
     searchList.forEach( function(item) {
-      if (item != "" && d.source.name.indexOf(item) != -1 || d.target.name.indexOf(item) != -1) { 
+      if (item != "" && d.source.name.indexOf(item) != -1 || d.target.name.indexOf(item) != -1) {
         found = true;
       }
     });
@@ -353,3 +371,5 @@ function checkForSearch() {
 }
 
 }
+Contact GitHub API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Status Help

@@ -1,21 +1,3 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Gist
- @aryamanarora
- Unwatch 1
-  Star 0
-  Fork 7 aryamanarora/lineage
-forked from bengarvey/lineage
- Code  Pull requests 0  Projects 0  Wiki  Pulse  Graphs  Settings
-Tree: 7d4ea5ba6a Find file Copy pathlineage/js/lineage.js
-7d4ea5b  4 hours ago
-@aryamanarora aryamanarora date fix
-2 contributors @bengarvey @aryamanarora
-RawBlameHistory     
-356 lines (294 sloc)  8.9 KB Language not supported. Coming soon!
 function start() {
 
   var zoomLevel = 1;
@@ -371,5 +353,3 @@ function checkForSearch() {
 }
 
 }
-Contact GitHub API Training Shop Blog About
-© 2016 GitHub, Inc. Terms Privacy Security Status Help

@@ -15,7 +15,7 @@
   {"name": "Kandhari, S.","gender": "F","lastName": "Kandhari","birthYear": 1940,"deathYear": ""},
   {"name": "Kandhari, S. D.","gender": "M","lastName": "Kandhari","birthYear": 1940,"deathYear": ""},
   {"name": "Kandhari, R.","gender": "F","lastName": "Kandhari","birthYear": 1970,"deathYear": ""},
-  {"name": "Kandhari, D.","gender": "F","lastName": "Kandhari","birthYear": 1970,"deathYear": ""},
+  {"name": "Kandhari, D.","gender": "F","lastName": "Kandhari","birthYear": 1970,"deathYear": ""}
 ],
 "links":[
   {"source":0,"target":2,"color":"#F39","relation":"mother"},

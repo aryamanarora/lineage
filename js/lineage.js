@@ -5,7 +5,7 @@ function start() {
   var width = window.innerWidth / zoomLevel,
       height = window.innerHeight / zoomLevel;
   var fill = d3.scale.category20();
-  var startYear = 1938;
+  var startYear = 1910;
   var currentYear = startYear;
   var lastYear = 2016;
   var timeVector = 0;

@@ -15,7 +15,11 @@
   {"name": "Kandhari, Sarla","gender": "F","lastName": "Kandhari","birthYear": 1940,"deathYear": ""},
   {"name": "Kandhari, Sai Das","gender": "M","lastName": "Kandhari","birthYear": 1940,"deathYear": ""},
   {"name": "Kandhari, Ritu","gender": "F","lastName": "Kandhari","birthYear": 1970,"deathYear": ""},
-  {"name": "Kandhari, Dolly","gender": "F","lastName": "Kandhari","birthYear": 1970,"deathYear": ""}
+  {"name": "Kandhari, Dolly","gender": "F","lastName": "Kandhari","birthYear": 1970,"deathYear": ""},
+  {"name": "Saxena, Ram S.","gender": "M","lastName": "Saxena","birthYear": 1910, "deathYear": "1970"},
+  {"name": "Devi, Leela","gender": "F", "lastName": "Devi","birthYear": 1910, "deathYear": "1970"},
+  {"name": "Arora, L.B.L.","gender": "M", "lastName": "Arora","birthYear": 1910, "deathYear": "1980"},
+  {"name": "Devi, Maya","gender": "F", "lastName": "Devi","birthYear": 1915, "deathYear": "1983"}
 ],
 "links":[
   {"source":0,"target":2,"color":"#F39","relation":"mother"},
@@ -43,5 +47,11 @@
   {"source":15,"target":14,"color":"#39F","relation":"father"},
   {"source":16,"target":13,"color":"#F39","relation":"mother"},
   {"source":16,"target":14,"color":"#39F","relation":"father"},
-  {"source":13,"target":14,"color":"CC0","relation":"spouse"}
+  {"source":13,"target":14,"color":"#CC0","relation":"spouse"},
+  {"source":17,"target":18,"color":"#CC0","relation":"spouse"},
+  {"source":4,"target":18,"color":"#F39","relation":"mother"},
+  {"source":4,"target":17,"color":"#39F","relation":"father"},
+  {"source":19,"target":20,"color":"#CC0","relation":"spouse"},
+  {"source":4,"target":20,"color":"#F39","relation":"mother"},
+  {"source":4,"target":19,"color":"#39F","relation":"father"}
 ]}

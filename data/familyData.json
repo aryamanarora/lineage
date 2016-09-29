@@ -52,6 +52,6 @@
   {"source":4,"target":18,"color":"#F39","relation":"mother"},
   {"source":4,"target":17,"color":"#39F","relation":"father"},
   {"source":19,"target":20,"color":"#CC0","relation":"spouse"},
-  {"source":4,"target":20,"color":"#F39","relation":"mother"},
-  {"source":4,"target":19,"color":"#39F","relation":"father"}
+  {"source":6,"target":20,"color":"#F39","relation":"mother"},
+  {"source":6,"target":19,"color":"#39F","relation":"father"}
 ]}
